@@ -19,7 +19,7 @@ RFMfunction <- function(data, weight_recency=1, weight_frequency=1, weight_monet
   weight_monetary2 <- weight_monetary/sum(weight_recency, weight_frequency, weight_monetary)
 
   # RFM measures
-  max.Date <- max(data$TransDate)
+  max.Date <- max(data[, TransDate])
   temp <- data[,list(
     recency = as.numeric(max.Date - max(TransDate)),
     frequency = .N,
